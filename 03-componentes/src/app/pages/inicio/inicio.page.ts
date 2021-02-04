@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
+interface Componente{
+  icon:string;
+  name:string;
+  redirecto:string;
+}
+
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.page.html',
@@ -7,6 +13,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InicioPage implements OnInit {
 
+
+  componentes: Componente[] = [
+    {
+      icon: 'american-football-outline',
+      name: 'Action Sheet',
+      redirecto: '/action-sheet'
+    },
+    {
+      icon: 'logo-apple-appstore',
+      name: 'Alert',
+      redirecto: '/alert'
+    }
+  ];
   constructor() { }
 
   ngOnInit() {
