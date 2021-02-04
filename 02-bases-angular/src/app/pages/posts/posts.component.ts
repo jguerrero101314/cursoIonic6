@@ -19,8 +19,10 @@ export class PostsComponent implements OnInit {
     // this.dataService.getPosts().subscribe( (posts:any[]) => {
     //   this.mensajes = posts;
     // });
+  }
 
-
+  escuchaClick(id:number){
+    console.log('Click en: ', id);
   }
 
 }
