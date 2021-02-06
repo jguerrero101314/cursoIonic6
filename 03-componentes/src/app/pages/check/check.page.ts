@@ -33,4 +33,7 @@ export class CheckPage implements OnInit {
     console.log(item);
 
   }
+  verData(){
+    console.log(this.data);
+  }
 }
