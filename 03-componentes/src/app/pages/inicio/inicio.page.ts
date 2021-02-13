@@ -59,6 +59,11 @@ export class InicioPage implements OnInit {
       icon: 'car-outline',
       name: 'Fab',
       redirecto: '/fab'
+    },
+    {
+      icon: 'grid-outline',
+      name: 'Grid',
+      redirecto: '/grid'
     }
   ];
   constructor() { }
