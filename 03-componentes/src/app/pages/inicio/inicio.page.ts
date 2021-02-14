@@ -64,12 +64,16 @@ export class InicioPage implements OnInit {
       icon: 'grid-outline',
       name: 'Grid',
       redirecto: '/grid'
-    }
-    ,
+    },
     {
       icon: 'infinite-outline',
       name: 'Infinite',
       redirecto: '/infinite'
+    },
+    {
+      icon: 'hammer-outline',
+      name: 'Input Forms',
+      redirecto: '/input'
     }
   ];
   constructor() { }
