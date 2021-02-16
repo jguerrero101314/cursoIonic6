@@ -6,8 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list-reorder.page.scss'],
 })
 export class ListReorderPage implements OnInit {
-  personajes: string[] = ['Aquaman','SuperMan','Mujer Maravilla', 'Flash']
+  personajes: string[] = ['Aquaman','SuperMan','Mujer Maravilla', 'Flash'];
 
+  // crear propiedad booleana
+
+  toogle:boolean = false;
   constructor() { }
 
   ngOnInit() {
