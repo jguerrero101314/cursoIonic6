@@ -72,5 +72,10 @@
         "icon": "refresh-circle-outline",
         "name": "Loading",
         "redirecto": "/loading"
+    },
+    {
+        "icon": "phone-portrait-outline",
+        "name": "Modal",
+        "redirecto": "/modal"
     }
 ]
