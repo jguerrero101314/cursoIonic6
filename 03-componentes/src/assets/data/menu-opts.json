@@ -92,5 +92,10 @@
         "icon": "arrow-down-circle-outline",
         "name": "Refresher",
         "redirecto": "/refresher"
+    },
+    {
+        "icon": "search-outline",
+        "name": "Search",
+        "redirecto": "/seacrh"
     }
 ]

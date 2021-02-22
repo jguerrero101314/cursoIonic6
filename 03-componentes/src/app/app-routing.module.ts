@@ -86,6 +86,10 @@ const routes: Routes = [
   {
     path: 'refresher',
     loadChildren: () => import('./pages/refresher/refresher.module').then( m => m.RefresherPageModule)
+  },
+  {
+    path: 'seacrh',
+    loadChildren: () => import('./pages/seacrh/seacrh.module').then( m => m.SeacrhPageModule)
   }
 ];
 
