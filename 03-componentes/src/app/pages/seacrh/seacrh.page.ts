@@ -9,6 +9,7 @@ import { DataService } from '../../service/data.service';
 export class SeacrhPage implements OnInit {
 
   albunes:any[] = [];
+  textoBuscar: string = '';
 
   constructor( private dataService: DataService) { }
 
@@ -21,5 +22,6 @@ export class SeacrhPage implements OnInit {
 
   onSearchChange( event ){
     console.log(event);
+    this.textoBuscar = event.detail.value;
   }
 }

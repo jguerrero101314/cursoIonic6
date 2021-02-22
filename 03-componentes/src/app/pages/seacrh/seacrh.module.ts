@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { SeacrhPageRoutingModule } from './seacrh-routing.module';
 
 import { SeacrhPage } from './seacrh.page';
+import { PipesModule } from '../../pipes/pipes.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    SeacrhPageRoutingModule
+    SeacrhPageRoutingModule,
+    PipesModule
   ],
   declarations: [SeacrhPage]
 })
