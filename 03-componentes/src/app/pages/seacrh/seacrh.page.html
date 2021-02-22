@@ -1,6 +1,10 @@
 <ion-header class="ion-no-border">
+
     <ion-toolbar>
-        <ion-title>Seacrh</ion-title>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref='/' text='Regresar' color="primary" mode='ios'></ion-back-button>
+        </ion-buttons>
+        <ion-title color="primary">Search</ion-title>
     </ion-toolbar>
 
     <ion-searchbar placeholder="Buscar album" animated inputmode="text" (ionChange)="onSearchChange( $event )" [debounce]="250">

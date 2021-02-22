@@ -90,6 +90,10 @@ const routes: Routes = [
   {
     path: 'seacrh',
     loadChildren: () => import('./pages/seacrh/seacrh.module').then( m => m.SeacrhPageModule)
+  },
+  {
+    path: 'segment',
+    loadChildren: () => import('./pages/segment/segment.module').then( m => m.SegmentPageModule)
   }
 ];
 
