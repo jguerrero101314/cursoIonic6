@@ -9,16 +9,23 @@ import { DataService } from '../../service/data.service';
 })
 export class SegmentPage implements OnInit {
 
-  superHeroes:Observable<any>;
-
+  superHeroes: Observable<any>;
+  publisher: string = '';
   constructor( private dataService: DataService) { }
+
 
   ngOnInit() {
     this.superHeroes = this.dataService.getHeroes();
   }
 
-  segmentChanged( event ){
+  segmentChanged( event ) {
+    // console.log(event.detail.value);
+    // if ( event.detail.value === 'todos' ) {
+    //   return this.publisher = '';
+    // }
 
+    this.publisher = event.detail.value;
   }
+
 
 }

@@ -1,22 +1,26 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'filtro'
+  name: 'filtro',
 })
 export class FiltroPipe implements PipeTransform {
-
-  transform(value: any[], texto: string = '', columna:string = 'title'): any {
-    if( texto === ''){
-      return value;
+  transform(
+    arreglo: any[],
+    texto: string = '',
+    columna: string = 'title'
+  ): any[] {
+    if (texto === '') {
+      return arreglo;
     }
-    if(!value){
-      return  value
+
+    if (!arreglo) {
+      return arreglo;
     }
 
     texto = texto.toLocaleLowerCase();
-    return  value.filter(
-      item => item[columna].title.toLowerCase().includes( texto )
+
+    return arreglo.filter((item) =>
+      item[columna].toLowerCase().includes(texto)
     );
   }
-
 }
