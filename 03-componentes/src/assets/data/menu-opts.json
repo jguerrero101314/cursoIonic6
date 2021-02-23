@@ -107,5 +107,10 @@
         "icon": "albums-outline",
         "name": "Slides",
         "redirecto": "/slides"
+    },
+    {
+        "icon": "pricetag-outline",
+        "name": "Toast",
+        "redirecto": "/toast"
     }
 ]
