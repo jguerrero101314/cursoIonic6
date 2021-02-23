@@ -6,6 +6,11 @@ import { TabsPage } from './tabs.page';
 const routes: Routes = [
   {
     path: '',
+    redirectTo:'/tabs/account',
+    pathMatch: 'full'
+  },
+  {
+    path: '',
     component: TabsPage,
     children:[
       {
@@ -14,11 +19,11 @@ const routes: Routes = [
       },
       {
         path:'contact',
-        loadChildren: () => import('../avatar/avatar.module').then( m => m.AvatarPageModule)
+        loadChildren: () => import('../list/list.module').then( m => m.ListPageModule)
       },
       {
         path:'settings',
-        loadChildren: () => import('../avatar/avatar.module').then( m => m.AvatarPageModule)
+        loadChildren: () => import('../infinite/infinite.module').then( m => m.InfinitePageModule)
       }
     ]
   }
