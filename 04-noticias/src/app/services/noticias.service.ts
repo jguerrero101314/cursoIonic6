@@ -10,6 +10,6 @@ export class NoticiasService {
   constructor( private http: HttpClient) { }
 
   getTodosHeadlines(){
-   return this.http.get<RespuestaTopHeadlines>(`http://newsapi.org/v2/everything?q=tesla&from=2021-01-28&sortBy=publishedAt&apiKey=cf7b4fbb186a4a85ae608467043d72e4`);
+   return this.http.get<RespuestaTopHeadlines>(`http://newsapi.org/v2/everything?q=tesla&from=2021-02-01&sortBy=publishedAt&apiKey=cf7b4fbb186a4a85ae608467043d72e4`);
   }
 }
