@@ -1,6 +1,7 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { IonSegment } from '@ionic/angular';
 import { NoticiasService } from '../../services/noticias.service';
+import { Article } from '../interfaces/interfaces';
 
 @Component({
   selector: 'app-tab2',
@@ -8,10 +9,9 @@ import { NoticiasService } from '../../services/noticias.service';
   styleUrls: ['tab2.page.scss'],
 })
 export class Tab2Page implements OnInit {
-
   @ViewChild(IonSegment, { static: true }) segment: IonSegment;
 
-  categorias:string[] = [
+  categorias: string[] = [
     'business',
     'entertainment',
     'general',
@@ -21,12 +21,29 @@ export class Tab2Page implements OnInit {
     'technology',
   ];
 
-  constructor( private noticiasService:NoticiasService) {}
+  noticias: Article[] = [];
 
-  ngOnInit(){
+  constructor(private noticiasService: NoticiasService) {}
+
+  ngOnInit() {
     this.segment.value = this.categorias[0];
-    this.noticiasService.getTopHeadlinesCategoria(this.categorias[0]).subscribe( resp => {
-      console.log('categorias',resp);
-    })
+    this.cargarNoticias( this.segment.value );
+ 
+  }
+
+  cambioCategoria( event ){
+    this.noticias = [];
+    this.cargarNoticias( event.detail.value);
+  }
+
+  cargarNoticias( categorias: string){
+    // this.segment.value = this.categorias[0];
+
+    this.noticiasService
+      .getTopHeadlinesCategoria(categorias)
+      .subscribe((resp) => {
+        console.log('categorias', resp);
+        this.noticias.push(...resp.articles);
+      });
   }
 }

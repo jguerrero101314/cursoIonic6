@@ -27,6 +27,6 @@ export class NoticiasService {
   }
 
   getTopHeadlinesCategoria(categoria: string) {
-    return this.ejecutarQuery<RespuestaTopHeadlines>(`/top-headlines?country=us&category=business`);
+    return this.ejecutarQuery<RespuestaTopHeadlines>(`/top-headlines?country=us&category=${categoria}`);
   }
 }
