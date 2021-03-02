@@ -1,15 +1,32 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { RespuestaTopHeadlines } from '../pages/interfaces/interfaces';
+import { environment } from '../../environments/environment';
+
+const apiKey = environment.apiKey;
+const apiUrl = environment.apiUrl;
+
+const headers = new HttpHeaders({
+  'X-Api-key': apiKey,
+});
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class NoticiasService {
+  constructor(private http: HttpClient) {}
 
-  constructor( private http: HttpClient) { }
+  private ejecutarQuery<T>(query: string) {
+    query = apiUrl + query;
 
-  getTodosHeadlines(){
-   return this.http.get<RespuestaTopHeadlines>(`http://newsapi.org/v2/everything?q=tesla&from=2021-02-01&sortBy=publishedAt&apiKey=cf7b4fbb186a4a85ae608467043d72e4`);
+    return this.http.get<T>(query, { headers: headers });
+  }
+
+  getTodosHeadlines() {
+    return this.ejecutarQuery<RespuestaTopHeadlines>(`/top-headlines?country=us`);
+  }
+
+  getTopHeadlinesCategoria(categoria: string) {
+    return this.ejecutarQuery<RespuestaTopHeadlines>(`/top-headlines?country=us&category=business`);
   }
 }
