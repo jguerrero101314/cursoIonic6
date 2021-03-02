@@ -14,6 +14,8 @@ const headers = new HttpHeaders({
   providedIn: 'root',
 })
 export class NoticiasService {
+
+  headlinesPage = 0;
   constructor(private http: HttpClient) {}
 
   private ejecutarQuery<T>(query: string) {
@@ -23,7 +25,8 @@ export class NoticiasService {
   }
 
   getTodosHeadlines() {
-    return this.ejecutarQuery<RespuestaTopHeadlines>(`/top-headlines?country=us`);
+    this.headlinesPage ++;
+    return this.ejecutarQuery<RespuestaTopHeadlines>(`/top-headlines?country=us&page=${ this.headlinesPage }`);
   }
 
   getTopHeadlinesCategoria(categoria: string) {
