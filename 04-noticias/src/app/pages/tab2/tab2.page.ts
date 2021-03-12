@@ -27,23 +27,26 @@ export class Tab2Page implements OnInit {
 
   ngOnInit() {
     this.segment.value = this.categorias[0];
-    this.cargarNoticias( this.segment.value );
- 
+    this.cargarNoticias(this.segment.value);
   }
 
-  cambioCategoria( event ){
+  cambioCategoria(event) {
     this.noticias = [];
-    this.cargarNoticias( event.detail.value);
+    this.cargarNoticias(event.detail.value);
   }
 
-  cargarNoticias( categorias: string){
-    // this.segment.value = this.categorias[0];
-
+  cargarNoticias(categorias: string, event?) {
     this.noticiasService
       .getTopHeadlinesCategoria(categorias)
       .subscribe((resp) => {
-        console.log('categorias', resp);
         this.noticias.push(...resp.articles);
+        if (event) {
+          event.target.complete();
+        }
       });
+  }
+
+  loadData(event) {
+    this.cargarNoticias(this.segment.value, event);
   }
 }
