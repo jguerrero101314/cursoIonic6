@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Article } from '../../pages/interfaces/interfaces';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
 @Component({
   selector: 'app-noticia',
@@ -7,12 +8,14 @@ import { Article } from '../../pages/interfaces/interfaces';
   styleUrls: ['./noticia.component.scss'],
 })
 export class NoticiaComponent implements OnInit {
+  @Input() noticia: Article;
+  @Input() index: number;
 
-  @Input() noticia:Article;
-  @Input() index:number;
-
-  constructor() { }
+  constructor(private readonly iab: InAppBrowser) {}
 
   ngOnInit() {}
 
+  abrirNoticia() {
+    const browser = this.iab.create(this.noticia.url, '_system');
+  }
 }
