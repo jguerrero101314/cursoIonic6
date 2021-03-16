@@ -7,12 +7,10 @@ import { Article } from '../../pages/interfaces/interfaces';
   styleUrls: ['./noticias.component.scss'],
 })
 export class NoticiasComponent implements OnInit {
+  @Input() noticias: Article[] = [];
+  @Input() enFavoritos = false;
 
-
-  @Input() noticias:Article[] = [];
-
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {}
-
 }
