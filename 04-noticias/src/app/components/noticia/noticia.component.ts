@@ -4,6 +4,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { ActionSheetController } from '@ionic/angular';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { DataLocalService } from 'src/app/services/dataLocalService.service';
+
 @Component({
   selector: 'app-noticia',
   templateUrl: './noticia.component.html',
@@ -21,9 +22,7 @@ export class NoticiaComponent implements OnInit {
     private readonly dataService: DataLocalService
   ) {}
 
-  ngOnInit() {
-    console.log('favoritos', this.enFavoritos);
-  }
+  ngOnInit() {}
 
   abrirNoticia() {
     const browser = this.iab.create(this.noticia.url, '_system');

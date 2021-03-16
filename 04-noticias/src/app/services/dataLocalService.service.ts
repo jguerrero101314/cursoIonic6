@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { ToastController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { Article } from '../pages/interfaces/interfaces';
 
@@ -7,8 +8,19 @@ import { Article } from '../pages/interfaces/interfaces';
 })
 export class DataLocalService {
   noticias: Article[] = [];
-  constructor(private readonly storage: Storage) {
+  constructor(
+    private readonly storage: Storage,
+    private readonly toastController: ToastController
+  ) {
     this.cargarFavoritos();
+  }
+
+  async presentToast(message: string) {
+    const toast = await this.toastController.create({
+      message: message,
+      duration: 1500,
+    });
+    toast.present();
   }
 
   guardarNoticia(noticia: Article) {
@@ -17,6 +29,7 @@ export class DataLocalService {
       this.noticias.unshift(noticia);
       this.storage.set('favoritos', this.noticias);
     }
+    this.presentToast('Agregado a favorito');
   }
 
   async cargarFavoritos() {
@@ -31,5 +44,6 @@ export class DataLocalService {
       (noti) => noti.title !== noticia.title
     );
     this.storage.set('favoritos', this.noticias);
+    this.presentToast('Borrado de favorito');
   }
 }
