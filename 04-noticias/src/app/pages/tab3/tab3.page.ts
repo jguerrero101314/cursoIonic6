@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
+import { DataLocalService } from 'src/app/services/dataLocalService.service';
 
 @Component({
   selector: 'app-tab3',
   templateUrl: 'tab3.page.html',
-  styleUrls: ['tab3.page.scss']
+  styleUrls: ['tab3.page.scss'],
 })
 export class Tab3Page {
-
-  constructor() {}
-
+  constructor(public readonly dataLocaService: DataLocalService) {}
 }
