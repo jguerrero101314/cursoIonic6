@@ -10,6 +10,16 @@
 <ion-content [fullscreen]="true"
              color="dark">
 
-  <app-noticias [noticias]="dataLocaService.noticias"></app-noticias>
+  <ion-slides mode="ios"
+              pager="ios"
+              scrollbar="ios"
+              *ngIf="dataLocaService.noticias.length === 0"
+              [options]="sliderOpts">
+    <ion-slide>
+      <ion-label> No hay favoritos</ion-label>
+    </ion-slide>
+  </ion-slides>
 
+  <app-noticias *ngIf="dataLocaService.noticias.length > 0"
+                [noticias]="dataLocaService.noticias"></app-noticias>
 </ion-content>
